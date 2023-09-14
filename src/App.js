@@ -29,6 +29,15 @@ function App() {
             <div>
               <h3>{movie.title}</h3>
               <p>{movie.summary}</p>
+              <ul>
+                {movie.genres.count === 0 ? null : (
+                  <div>
+                    {movie.genres.map((g) => (
+                      <li>{g}</li>
+                    ))}
+                  </div>
+                )}
+              </ul>
             </div>
           ))}
         </div>
