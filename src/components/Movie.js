@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-function Movie({ id, coverImage, summary, title, genres }) {
+function Movie({ id, coverImg, summary, title, genres }) {
   const Movie = styled.div`
     position: absolute;
     top: 0;
@@ -43,7 +43,7 @@ function Movie({ id, coverImage, summary, title, genres }) {
           "running";
       }}
     >
-      <img src={coverImage} />
+      <img src={coverImg} />
       <div className="text">
         <h2>
           <Link to={`/movie/${id}`}>{title}</Link>
