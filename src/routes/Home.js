@@ -24,18 +24,17 @@ function Home() {
       {loading ? (
         <h1>Loading</h1>
       ) : (
-        <div>
-          {movies.map((movie) => (
-            // eslint-disable-next-line react/jsx-no-undef
-            <Movie
-              key={movie.id}
-              id={movie.id}
-              coverImage={movie.medium_cover_image}
-              summary={movie.summary}
-              title={movie.title}
-              genres={movie.genres}
-            />
-          ))}
+        <div className="movies">
+          <div className="movies-wrap">
+            {movies.map((movie) => (
+              <Movie
+                key={movie.id}
+                id={movie.id}
+                coverImg={movie.medium_cover_image}
+                title={movie.title}
+              />
+            ))}
+          </div>
         </div>
       )}
     </div>
