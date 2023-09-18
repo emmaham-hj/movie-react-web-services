@@ -1,49 +1,20 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./routes/Home";
+import Detail from "./routes/Detail";
 
-function App() {
-  const [loading, setLoading] = useState(true);
-  const [movies, setMovies] = useState([]);
-  const getMovies = async () => {
-    const json = await (
-      await fetch(
-        `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year"`
-      )
-    ).json();
-    setMovies(json.data.movies);
-    setLoading(false);
-    console.log(json.data.movies);
-  };
-
-  useEffect(() => {
-    getMovies();
-  }, []);
-
+export default function App() {
   return (
-    <div>
-      {loading ? (
-        <h1>Loading</h1>
-      ) : (
-        <div>
-          {movies.map((movie, index) => (
-            <div>
-              <h3>{movie.title}</h3>
-              <p>{movie.summary}</p>
-              <ul>
-                {movie.genres.count === 0 ? null : (
-                  <div>
-                    {movie.genres.map((g) => (
-                      <li>{g}</li>
-                    ))}
-                  </div>
-                )}
-              </ul>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+    <Router>
+      <Switch>
+        {/* // Switch is going to find a route which is a url, if it finds it then it will render that component. */}
+        <Route path="/movie/:id">
+          <Detail />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
-
-export default App;
