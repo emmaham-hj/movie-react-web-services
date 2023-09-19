@@ -16,7 +16,7 @@ function MovieItem({ id, index, coverImg, summary, title, rating, genres }) {
           </h2>
           <h6>Rating : {rating}</h6>
           <RatingView value={rating} />
-          <p>{summary.substring(0, 100)}...</p>
+          <p>{summary.substring(0, 80)}...</p>
         </div>
       </div>
     </article>

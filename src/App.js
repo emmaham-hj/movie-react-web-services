@@ -9,7 +9,6 @@ export default function App({ props }) {
   console.log(props);
   return (
     <Router>
-      <Header />
       <Switch>
         {/* // Switch is going to find a route which is a url, if it finds it then it will render that component. */}
         <Route path="/movie/:id">

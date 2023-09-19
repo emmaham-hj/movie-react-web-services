@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { PropTypes } from "prop-types";
+import "./detail.css";
+import RatingView from "../components/Rating";
 
 function Detail() {
   const [loading, setLoading] = useState(true);
@@ -24,6 +26,7 @@ function Detail() {
       ) : (
         <DetailView
           background_image={details.background_image}
+          image={details.medium_cover_image}
           title={details.title}
           description_intro={details.description_intro}
           description_full={details.description_full}
@@ -40,6 +43,7 @@ export default Detail;
 
 function DetailView({
   background_image,
+  image,
   title,
   description_intro,
   description_full,
@@ -48,14 +52,20 @@ function DetailView({
   genres,
 }) {
   return (
-    <div style={{ padding: 16 }}>
-      <img src={background_image} />
-      <h4>{title}</h4>
-      <p>{description_intro}</p>
+    <div
+      className="detailBackground"
+      style={{
+        backgroundImage: `url(${background_image})`,
+      }}
+    >
+      <h2>{title}</h2>
+      <img src={image} />
+
       <p>{description_full}</p>
-      <div>
+      <div className="ratingView">
         <p>Released: {year}</p>
         <p>Rating: {rating}</p>
+        <RatingView value={rating} />
       </div>
       <b>Ganres</b>
       <ul>
@@ -69,6 +79,7 @@ function DetailView({
 
 DetailView.propTypes = {
   background_image: PropTypes.string,
+  image: PropTypes.string,
   title: PropTypes.string.isRequired,
   description_intro: PropTypes.string.isRequired,
   description_full: PropTypes.string.isRequired,
