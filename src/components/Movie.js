@@ -50,23 +50,6 @@ function Movie({ id, coverImg, summary, title, genres }) {
         </h2>
       </div>
     </Movie>
-
-    // <div>
-    //   <img src={coverImage} alt={title} />
-    //   <h3>
-    //     <Link to={`/movie/${id}`}>{title}</Link>
-    //   </h3>
-    //   <p>{summary}</p>
-    //   <ul>
-    //     {genres.count === 0 ? null : (
-    //       <div>
-    //         {genres.map((g) => (
-    //           <li>{g}</li>
-    //         ))}
-    //       </div>
-    //     )}
-    //   </ul>
-    // </div>
   );
 }
 Movie.propTypes = {
