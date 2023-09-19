@@ -1,0 +1,7 @@
+
+
+1. store  movies from data fetching remotely.
+2. when we click top10 link on navigation bar, we display top 5 movies filtered from movies store in the redux store. 
+3. On click of the link, we want to first, set the filter flag to true. 
+
+4. When displaying top movies, we want to check the filter flag as well as filtering movies array. 

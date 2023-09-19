@@ -26,16 +26,24 @@ function Home() {
   const handleClick = () => {
     setFilter(true);
   };
+  const handleAllMoviesClick = () => {
+    getMovies();
+    setLoading(true);
+    setFilter(false);
+  };
 
   return (
     <div>
-      <button onClick={handleClick}>get top 10</button>
+      {filtered ? (
+        <button onClick={handleAllMoviesClick}>All movies</button>
+      ) : (
+        <button onClick={handleClick}>Top 10</button>
+      )}
       {loading ? (
         <h1>Loading</h1>
       ) : filtered ? (
         <div className="filtered-movie">
           <h1>Top 10</h1>
-
           <div className="news-table">
             {movies
               .sort((a, b) => b.rating - a.rating)

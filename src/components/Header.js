@@ -61,13 +61,13 @@ function Header() {
       <Nav>
         <ul>
           <li>
-            <Link to="/movie/animation">Animation</Link>
+            <Link to="/">Animation</Link>
           </li>
           <li>
-            <Link to="/movie/sci-fi">Science Fiction</Link>
+            <Link to="/">Science Fiction</Link>
           </li>
           <li>
-            <Link to="/movie/romance">Romance</Link>
+            <Link to="/">Romance</Link>
           </li>
         </ul>
       </Nav>
